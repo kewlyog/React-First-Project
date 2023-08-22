@@ -10,7 +10,6 @@ export default function AboutUs() {
   const [btnText, setBtnText] = useState('Enable Dark Mode');
 
   const handleOnClick = () => {
-    // console.log('button clicked');
 
     console.log('btn color', myStyle.color);
 

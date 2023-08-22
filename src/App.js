@@ -2,10 +2,11 @@ import './App.css';
 import { useState } from 'react'
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
-import Alert from './components/Alert';
 import AboutUs from './components/AboutUs';
+import Alert from './components/Alert';
 // import ErrorBound from './ErrorBound';
 // import Forms from './components/Forms';
+// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
 
@@ -14,7 +15,7 @@ function App() {
   const [alert, setAlert] = useState(null);
 
   const showAlert = (msg, typ) => {
-    //setAlert('This is alert text');
+    setAlert('This is alert text');
 
     setAlert({
       message: msg,
@@ -44,14 +45,33 @@ function App() {
   return (
     <>
       <div>
-        <Navbar title="yo yo!" aboutUs="About Us" mode={mode}
+
+        {/* Below code is with routes */}
+
+        {/* <Router>
+          <Navbar title="yo yo!" aboutUs="About Us" mode={mode}
+            toggleMode={toggleMode} btnText={btnText} />
+          < Alert alert={alert} />
+
+          <Routes>
+
+            <Route exact path='/'
+              element={< TextForm showAlert={showAlert} heading="Enter text to analyze" mode={mode} />}
+            />
+
+            <Route exact path='/about' element={< AboutUs />} />
+
+          </Routes>
+        </Router> */}
+
+        {/* Below code is without routes used for github hosting */}
+
+        < Navbar title="yo yo!" aboutUs="About Us" mode={mode}
           toggleMode={toggleMode} btnText={btnText} />
-        {/* <Alert alert={alert} /> */}
-        <TextForm heading="Enter the text to analyze below" mode={mode}
-          showAlert={showAlert} />
-        <AboutUs />
-        {/* <ErrorBound><Users /></ErrorBound> */}
-        {/* <Forms /> */}
+        < Alert alert={alert} />
+        < TextForm showAlert={showAlert} heading="Enter text to analyze" mode={mode} />
+        < AboutUs />
+
       </div>
     </>
   );

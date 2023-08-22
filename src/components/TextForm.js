@@ -9,7 +9,6 @@ export default function TextForm(props) {
     }
 
     const handleOnChange = (event) => {
-        // console.log('On Change event is called for text area');
         setText(event.target.value);
     }
 
